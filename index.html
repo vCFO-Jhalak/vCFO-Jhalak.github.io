@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhalak Wadhwani - Virtual CFO for Tech Startups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0a0f;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header with Dark Gradient */
+        header {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 90px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid #00d4ff;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent,
+                #00d4ff,
+                #8a2be2,
+                transparent
+            );
+            bottom: 0;
+            animation: scan 4s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00d4ff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        header .tagline {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            color: #b0b0b0;
+            max-width: 750px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #8a2be2);
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
+        }
+        
+        /* Can't Afford Section */
+        .afford-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .afford-section h2 {
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            font-weight: 800;
+            color: #00d4ff;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+        
+        .afford-section p {
+            font-size: 1.3em;
+            max-width: 850px;
+            margin: 0 auto;
+            color: #c0c0c0;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            padding: 90px 20px;
+            background: #0a0a0f;
+            position: relative;
+        }
+        
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        
+        .problem-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .problem-section h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: white;
+            font-weight: 900;
+        }
+        
+        .problem-section .intro {
+            text-align: center;
+            font-size: 1.4em;
+            color: #8a2be2;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        }
+        
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+        
+        .pain-point {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pain-point::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .pain-point:hover::before {
+            opacity: 1;
+        }
+        
+        .pain-point:hover {
+            transform: translateY(-8px);
+            border-color: #00d4ff;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+        }
+        
+        .pain-point h3 {
+            color: #00d4ff;
+            margin-bottom: 18px;
+            font-size: 1.6em;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pain-point p {
+            color: #c0c0c0;
+            font-size: 1.1em;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 90px 20px;
+            background: linear-gradient(to bottom, #0f0f1e 0%, #1a1a2e 100%);
+        }
+        
+        .services-section h2 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 25px;
+            color: white;
+            font-weight: 900;
+        }
+        
+        .services-section .intro {
+            text-align: center;
+            font-size: 1.2em;
+            color: #999;
+            max-width: 800px;
+            margin: 0 auto 70px;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: rgba(0, 212, 255, 0.03);
+            padding: 45px;
+            border-radius: 25px;
+            transition: all 0.4s;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #00d4ff, #8a2be2);
+            border-radius: 25px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s;
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-12px);
+            background: rgba(0, 212, 255, 0.08);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
+        }
+        
+        .service-card h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.9em;
+            font-weight: 800;
+        }
+        
+        .service-card .price {
+            font-size: 1.7em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00d4ff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+        }
+        
+        .service-card .subtitle {
+            color: #999;
+            font-size: 1.05em;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        .service-card h4 {
+            color: #8a2be2;
+            font-size: 1.3em;
+            margin: 30px 0 15px 0;
+            font-weight: 700;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .service-card ul li {
+            padding: 10px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #c0c0c0;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+        
+        .service-card ul li:before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-size: 1.3em;
+        }
+        
+        .popular-badge {
+            background: linear-gradient(135deg, #00d4ff, #8a2be2);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 25px;
+            font-weight: 800;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+        }
+        
+        .delivery-badge {
+            background: rgba(0, 212, 255, 0.15);
+            color: #00d4ff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .contract-options {
+            background: rgba(138, 43, 226, 0.1);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border-left: 3px solid #8a2be2;
+        }
+        
+        .contract-options p {
+            color: #b0b0b0;
+            font-size: 0.95em;
+            margin: 0;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 90px 20px;
+            text-align: center;
+            position: relative;
+            border-top: 2px solid #00d4ff;
+        }
+        
+        .about-section h2 {
+            font-size: 3em;
+            margin-bottom: 50px;
+            font-weight: 900;
+            color: #00d4ff;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            background: rgba(10, 10, 15, 0.8);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 0 60px rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .about-content p {
+            margin-bottom: 22px;
+            font-size: 1.15em;
+            color: #c0c0c0;
+            line-height: 1.9;
+        }
+        
+        .credentials {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 35px;
+            border-left: 4px solid #00d4ff;
+        }
+        
+        .credentials strong {
+            color: #00d4ff;
+            font-size: 1.15em;
+        }
+        
+        .credentials p {
+            color: #b0b0b0;
+        }
+        
+        /* What I Don't Do Section */
+        .dont-do-section {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .dont-do-section h3 {
+            color: #00d4ff;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .dont-do-section p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 90px 20px;
+            background: #0a0a0f;
+            position: relative;
+        }
+        
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(138, 43, 226, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(138, 43, 226, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        
+        .faq-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 60px;
+            color: white;
+            font-weight: 900;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            border-color: #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .faq-item h3 {
+            color: #00d4ff;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .faq-item p {
+            color: #c0c0c0;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 90px 20px;
+            text-align: center;
+            background: #0a0a0f;
+        }
+        
+        .contact-section h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00d4ff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .contact-section p {
+            font-size: 1.25em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #999;
+        }
+        
+        .contact-info {
+            font-size: 1.2em;
+            margin: 40px 0;
+        }
+        
+        .contact-info p {
+            margin: 18px 0;
+        }
+        
+        .contact-info a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 700;
+        }
+        
+        .contact-info a:hover {
+            color: #8a2be2;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            color: #666;
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 0.95em;
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: #8a2be2;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            
+            
+            .services, .pain-points, .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Jhalak Wadhwani</h1>
+            <p class="tagline">Virtual CFO for Tech Startups & Small Businesses</p>
+            <p>Strategic finance for startups that can't afford high CFO salaries. Get expert guidance at startup-friendly pricing.</p>
+            <a href="#contact" class="cta-button">Get Started - Free Consultation</a>
+        </div>
+    </header>
+
+    <!-- Can't Afford CFO Section -->
+    <section class="afford-section">
+        <div class="container">
+            <h2>Can't Afford a Full-Time CFO?<br>Hire a Virtual CFO Instead.</h2>
+            <p>Get strategic financial guidance, cash flow management, and growth planning—without the massive overhead of a full-time executive hire.</p>
+        </div>
+    </section>
+
+    <!-- Startup Facts Section -->
+    <section class="problem-section" style="padding: 70px 20px;">
+        <div class="container">
+            <h2 style="margin-bottom: 40px;">The Reality of Startups in India</h2>
+            
+            <div class="pain-points" style="margin-top: 30px;">
+                <div class="pain-point" style="text-align: center;">
+                    <h3 style="font-size: 3em; margin-bottom: 10px;">90%</h3>
+                    <p style="font-size: 1.2em;">of Indian startups fail within the first 5 years</p>
+                    <p style="font-size: 0.95em; color: #999; margin-top: 15px;">Source: IBM Institute for Business Value & Oxford Economics</p>
+                </div>
+                <div class="pain-point" style="text-align: center;">
+                    <h3 style="font-size: 3em; margin-bottom: 10px;">42%</h3>
+                    <p style="font-size: 1.2em;">fail due to misreading market demand and poor financial planning</p>
+                    <p style="font-size: 0.95em; color: #999; margin-top: 15px;">Source: CB Insights Research</p>
+                </div>
+                <div class="pain-point" style="text-align: center;">
+                    <h3 style="font-size: 3em; margin-bottom: 10px;">44%</h3>
+                    <p style="font-size: 1.2em;">run out of cash due to poor financial management</p>
+                    <p style="font-size: 0.95em; color: #999; margin-top: 15px;">Source: Startup Failure Analysis 2025</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; padding: 40px; background: rgba(0, 212, 255, 0.05); border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2);">
+                <p style="font-size: 1.4em; color: #00d4ff; font-weight: 700; margin-bottom: 15px;">Don't become a statistic.</p>
+                <p style="font-size: 1.15em; color: #c0c0c0;">Most startup failures aren't due to bad ideas—they're due to poor financial visibility and planning. Get the CFO-level guidance you need to be in the successful 10%.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2>Building Fast. Burning Cash.<br>Not Sure How Long You'll Last?</h2>
+            <p class="intro">We've got you covered.</p>
+            
+            <div class="pain-points">
+                <div class="pain-point">
+                    <h3>💸 Cash Flow Crisis</h3>
+                    <p>You're "profitable" on paper, but your bank balance says otherwise. Every month is a nail-biter wondering if you'll make payroll. Where is all the money actually going?</p>
+                </div>
+                <div class="pain-point">
+                    <h3>🎲 Decision Paralysis</h3>
+                    <p>Hire now or wait? Raise prices? Take VC money? Every decision could make or break your startup, and you're making them with zero financial clarity.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>⏰ Runway Anxiety</h3>
+                    <p>You think you have 12 months of runway. Or is it 8? Maybe 15? Without proper forecasting, you won't see the cliff until it's too late.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2>Strategic Finance for Startups</h2>
+            <p class="intro">CFO-level guidance at a fraction of the cost. Built for tech startups with big ambitions and tight budgets.</p>
+            <div class="services">
+                <!-- Service 1: Financial Health Check -->
+                <div class="service-card">
+                    <h3>Financial Health Check</h3>
+                    <div class="price">₹5,000</div>
+                    <p class="subtitle">One-time comprehensive financial assessment</p>
+                    
+                    <h4>What You Get:</h4>
+                    <ul>
+                        <li>Complete analysis of your current financial position</li>
+                        <li>Review of revenue streams, cost structure, and cash flow patterns</li>
+                        <li>Identification of critical financial issues and red flags</li>
+                        <li>Opportunities for immediate improvement</li>
+                        <li>Detailed written report covering all findings</li>
+                        <li>Follow-up meeting to explain everything in simple, clear language</li>
+                    </ul>
+                    
+                    <h4>Perfect For:</h4>
+                    <ul>
+                        <li>Startups needing a financial reality check</li>
+                        <li>Founders unsure about their current financial health</li>
+                        <li>Companies preparing for fundraising or major decisions</li>
+                    </ul>
+                    
+                    <div class="delivery-badge">⚡ Delivered within 5 business days</div>
+                </div>
+                
+                <!-- Service 2: Virtual CFO Partnership -->
+                <div class="service-card">
+                    <h3>Virtual CFO Partnership</h3>
+                    <div class="price">₹20,000 - ₹35,000/mo</div>
+                    <p class="subtitle">Ongoing strategic finance partnership for sustainable growth</p>
+                    
+                    <h4>Monthly Deliverables:</h4>
+                    <ul>
+                        <li>Comprehensive financial reports with month-over-month comparison (current month + 2 previous months)</li>
+                        <li>Cash flow analysis and 3-6 month forward projections</li>
+                        <li>Real-time KPI tracking dashboard (Burn Rate, Gross & Net Margin, CAC, Runway, and custom metrics)</li>
+                        <li>Financial insights and actionable recommendations</li>
+                        <li>2 strategic finance meetings per month tailored to your business needs</li>
+                        <li>24-hour response time for urgent financial queries</li>
+                    </ul>
+                    
+                    <h4>Quarterly Services:</h4>
+                    <ul>
+                        <li>Comprehensive business review and strategic planning session</li>
+                        <li>Budget vs actuals analysis with variance explanations</li>
+                        <li>Goal setting and financial roadmap for next quarter</li>
+                    </ul>
+                    
+                    <h4>Additional Support:</h4>
+                    <ul>
+                        <li>On-call support for critical financial decisions (hiring, pricing, expansion)</li>
+                        <li>Ad-hoc scenario analysis when needed</li>
+                        <li>Tax planning guidance and recommendations</li>
+                        <li>GST and audit coordination support</li>
+                        <li>High-level payroll review and oversight</li>
+                    </ul>
+                    
+                    <h4>Pricing Based On:</h4>
+                    <ul>
+                        <li>₹20,000/mo: Annual revenue up to ₹1 Crore</li>
+                        <li>₹25,000/mo: Annual revenue ₹1-3 Crores</li>
+                        <li>₹30,000/mo: Annual revenue ₹3-5 Crores</li>
+                        <li>₹35,000/mo: Annual revenue ₹5+ Crores</li>
+                    </ul>
+                    
+                    <div class="contract-options">
+                        <p><strong>Flexible Contracts:</strong> Available in monthly, quarterly, or annual commitments</p>
+                    </div>
+                    
+                    <div class="popular-badge">⚡ Most Popular Choice</div>
+                </div>
+                
+                <!-- Service 3: Growth CFO -->
+                <div class="service-card">
+                    <h3>Growth CFO</h3>
+                    <div class="price">₹50,000 - ₹80,000/mo</div>
+                    <p class="subtitle">Full CFO support for rapidly scaling startups</p>
+                    
+                    <h4>Everything in Virtual CFO Partnership, Plus:</h4>
+                    <ul>
+                        <li>Weekly strategic check-ins to keep pace with rapid growth</li>
+                        <li>Advanced financial modeling for growth scenarios (best case, base case, worst case)</li>
+                        <li>Detailed scenario analysis for major business decisions</li>
+                        <li>Capital structure planning and optimization</li>
+                        <li>Support for fundraising preparation, loan applications, and debt structuring</li>
+                        <li>Investor-grade financial documentation and reporting</li>
+                        <li>Annual budgeting and comprehensive strategic financial planning</li>
+                        <li>Unit economics deep-dive and optimization</li>
+                        <li>Priority access with faster response times</li>
+                    </ul>
+                    
+                    <h4>Ideal For:</h4>
+                    <ul>
+                        <li>Startups growing 50%+ year-over-year</li>
+                        <li>Companies preparing for or in fundraising mode</li>
+                        <li>Businesses managing complex capital structures</li>
+                        <li>Teams making frequent high-stakes financial decisions</li>
+                        <li>Companies planning major expansions or pivots</li>
+                    </ul>
+                    
+                    <h4>Pricing Based On:</h4>
+                    <ul>
+                        <li>₹50,000/mo: Annual revenue up to ₹3 Crores or early-stage fundraising</li>
+                        <li>₹60,000/mo: Annual revenue ₹3-7 Crores</li>
+                        <li>₹70,000/mo: Annual revenue ₹7-12 Crores</li>
+                        <li>₹80,000/mo: Annual revenue ₹12+ Crores or complex capital needs</li>
+                    </ul>
+                    
+                    <div class="contract-options">
+                        <p><strong>Flexible Contracts:</strong> Available in monthly, quarterly, or annual commitments</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- What's Included Section -->
+            <div class="dont-do-section">
+                <h3>📋 Important Notes on Services</h3>
+                <p><strong>What I Do:</strong> Strategic financial planning, analysis, forecasting, KPI tracking, scenario modeling, financial decision support, tax planning guidance, and coordination with your accountant/auditor.</p>
+                
+                <p><strong>What I Don't Do:</strong> Day-to-day bookkeeping (you'll need an accountant for this), tax filing (I provide guidance and verify accuracy), detailed payroll processing (I provide oversight and recommendations).</p>
+                
+                <p><strong>Software Flexibility:</strong> I work with any accounting software you're currently using—QuickBooks, Tally, Zoho Books, or others. As long as you can provide reports, we're good to go.</p>
+                
+                <p><strong>No Hidden Costs:</strong> The prices quoted include all services mentioned. No surprise charges or additional fees.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2>Hi, I'm Jhalak</h2>
+            <div class="about-content">
+                <p><strong>I help tech startups make confident financial decisions without the CFO-sized salary.</strong></p>
+                
+                <p>Over 3+ years working across finance, accounting, auditing, and taxation, I've watched brilliant founders with game-changing products struggle—not because their vision was wrong, but because they were flying blind financially.</p>
+                
+                <p>You're building the product, managing the team, talking to investors, and somehow you're supposed to master financial forecasting too? That's impossible.</p>
+                
+                <p>Your accountant keeps your books clean, but when it comes to "Should we hire now?" or "How much runway do we actually have?"—you need someone who translates numbers into strategy.</p>
+                
+                <p><strong>That's exactly what I do.</strong></p>
+                
+                <p>No overwhelming spreadsheets. No financial jargon. Just clear insights and practical guidance so you can build your startup with confidence—not constant financial anxiety.</p>
+                
+                <div class="credentials">
+                    <p><strong>Qualifications & Expertise:</strong></p>
+                    <p>🎓 CA (Pursuing) | B.Com | ACCA (8 Levels Cleared)</p>
+                    <p>📊 Certified in: Business Analytics, Financial Statement Analysis, Power BI, Financial Modelling, Introduction to Sustainability & Sustainable Finance, NISM Certification, Forage Programs</p>
+                    <p>💼 3+ Years Experience in Finance, Accounting, Auditing & Taxation</p>
+                    <p>📍 Based in Udaipur, Rajasthan | Serving startups across India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How quickly can we get started?</h3>
+                    <p>For the Financial Health Check, we can start within 2-3 days of receiving your financial information. For ongoing partnerships, we typically onboard within one week after our initial consultation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What accounting software do you work with?</h3>
+                    <p>I work with all major accounting platforms including QuickBooks, Tally, Zoho Books, and others. As long as you can provide financial reports from your software, we're good to go.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do you work with businesses outside India?</h3>
+                    <p>Yes! While I'm based in Udaipur, I serve startups and businesses across India and internationally. All consultations and meetings are conducted virtually.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What industries do you specialize in?</h3>
+                    <p>I primarily work with tech startups, SaaS companies, e-commerce businesses, and service-based companies. My experience spans various industries, so I can adapt to your specific business model.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What if I already have an accountant?</h3>
+                    <p>Perfect! I work alongside your accountant, not replace them. Your accountant handles bookkeeping and compliance; I focus on strategic financial planning, analysis, and helping you make confident business decisions.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I upgrade or downgrade my plan?</h3>
+                    <p>Absolutely. Your business needs change, and your CFO support should too. You can adjust your service level at any time to match your current growth stage and requirements.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What information do you need to get started?</h3>
+                    <p>Basic financial statements (P&L, Balance Sheet, Cash Flow), bank statements for recent months, and access to your accounting software reports. I'll guide you through exactly what's needed during our initial conversation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do you sign NDAs or confidentiality agreements?</h3>
+                    <p>Yes, absolutely. Your financial information is sensitive, and I'm happy to sign any confidentiality or non-disclosure agreements you require before we begin working together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Ready to Get Financial Clarity?</h2>
+            <p>Let's have a quick, no-pressure conversation about your startup's finances and where you're headed.</p>
+            <p style="font-size: 1.1em; color: #8a2be2; margin-bottom: 30px;">No commitments. No obligations. Just an honest conversation.</p>
+            <div class="contact-info">
+                <p>📧 Email: <a href="mailto:jhalakw2002@gmail.com">jhalakw2002@gmail.com</a></p>
+                <p>📱 Phone/WhatsApp: <a href="tel:+919414161152">+91 94141 61152</a></p>
+                <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/jhalak-wadhwani-63429722a" target="_blank">https://www.linkedin.com/in/jhalak-wadhwani-63429722a</a></p>
+                <p style="margin-top: 25px; color: #999; font-size: 1em;">⚡ Typical response time: Within 2 business days</p>
+            </div>
+            <a href="mailto:jhalakw2002@gmail.com" class="cta-button" style="margin-top: 35px; margin-right: 15px;">Email Me</a>
+            <a href="https://calendly.com/jhalak-w09/20min" class="cta-button" style="margin-top: 35px; background: linear-gradient(135deg, #8a2be2, #00d4ff);">Book a Call</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jhalak Wadhwani - Virtual CFO Services | All Rights Reserved</p>
+            <p style="margin-top: 12px;">
+                <a href="#terms">Terms & Conditions</a> | 
+                <a href="#privacy">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
